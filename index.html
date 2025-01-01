@@ -472,6 +472,84 @@ footer {
     }
    
     
+    .foam{
+      margin-top: 10px;
+      width: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 600px;
+       background: rgb(255, 255, 255);
+    }
+    .table{
+       border: 2px solid var(--primary);
+       width: 350px;
+       height: 550px;
+       text-align: center;
+       align-content: center;
+      
+    }
+    .f-head{
+      color: var(--primary);
+      font-family: "Griffy", serif;
+  font-weight: 400;
+  font-style: normal;
+    }
+    
+  input{
+      margin-top: 10px;
+      border: 1px solid var(--primary);
+      outline: var(--primary);
+     
+    }
+    input:hover{
+      border: 1px solid var(--secondary);
+    }
+    .hading{
+      color: var(--secondary);
+      font-family: "Griffy", serif;
+  font-weight: 400;
+  font-style: normal;
+    }
+    textarea{
+      margin-top: 20px;
+      border: 1px solid var(--primary);
+      width: 250px;
+      height: 100px;
+    }
+    textarea:hover{
+      border: 1px solid var(--secondary);
+      outline: var(--secondary);
+
+
+    }
+    .btn1{
+      margin-top: 20px;
+      padding: 5px;
+      font-size: 15px;
+      border: 1px solid var(--primary);
+      background-color: var(--secondary);
+      border-radius: 10px;
+    }
+   .btn1:hover{
+      border: 1px solid var(--secondary);
+      background-color: var(--primary);
+    }
+    .in{
+       width: 250px;
+    }
+    /* Webkit browsers (Chrome, Safari, etc.) */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Allow the number input to have visible spinner in all browsers */
+input[type="number"] {
+    width: 50%; /* Full width to display spinner */
+    padding: 8px; /* Add some padding to make sure it's not too cramped */
+}
  </style>
   </head>
   <body>
@@ -568,6 +646,33 @@ footer {
       <div id="results" class="results"></div>
   </div>
 
+
+
+<div class="foam">
+    <div class="table">
+      <form onsubmit="sendEmail(); reset(); return false;">
+        <h1 class="f-head">Mint &<span class="hading"> Mart shop</span></h1>
+        <label for="name">Your Name:</label><br>
+        <input  type="text" id="name" placeholder="Your Name" required><br>
+  
+        <label for="item-name">Item Name:</label><br>
+        <input  type="text" id="item-name" placeholder="Item Name" required><br>
+  
+        <label for="item-quantity">Item Quantity:</label><br>
+        <input class="in" type="number" id="item-quantity" placeholder="Item Quantity" required min="1" max="100" step="1"><br>
+        
+  
+        <label for="message">Address:</label><br>
+        <textarea id="message" placeholder="Address" required></textarea><br>
+  
+        <button class="btn1" type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+
+
+    
   <div class="gallery">
     <h1>Main Item For Selling In Shop</h1>
     </div>
@@ -728,6 +833,12 @@ if (filteredItems.length > 0) {
     resultsDiv.innerHTML = "No items found.";
 }
 }
+</script>
+    <script>
+  // JavaScript function to get the item quantity value
+  function getItemQuantity() {
+    const quantity = document.getElementById('item-quantity').value; 
+  }
 </script>
 
   </body>
