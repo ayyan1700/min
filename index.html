@@ -866,6 +866,48 @@ input[type="number"] {
 
 
 </script>
+
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  // Initialize EmailJS
+  emailjs.init("YOUR_USER_ID");
+
+  // Send email function
+  function sendEmail() {
+    // Collect form data
+    var form = document.getElementById('contactForm');
+    var name = document.getElementById('name').value;
+    var itemName = document.getElementById('item-name').value;
+    var itemQuantity = document.getElementById('item-quantity').value;
+    var address = document.getElementById('message').value;
+
+    // Create an email data object
+    var emailData = {
+      name: name,
+      item_name: itemName,
+      item_quantity: itemQuantity,
+      address: address,
+    };
+
+    // Send email using EmailJS
+    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", emailData)
+      .then(function(response) {
+        alert("Message Sent Successfully!");
+        form.reset(); // Reset the form fields after submission
+      })
+      .catch(function(error) {
+        alert("Failed to send message: " + error.text);
+      });
+  }
+</script>
+
+
+
+
+
+
+    
 <script>
   // JavaScript function to get the item quantity value
   function getItemQuantity() {
